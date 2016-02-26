@@ -1,0 +1,31 @@
+body {
+  background-image: url("../images/backImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.vertical-center {  
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+}
+/*.logo{
+  background-image: url("../images/cognizant-logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #0089B6;
+}*/
+.header{
+  height: 10%;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+}
+.headerImg{
+  width: 15%;
+  text-align: center;
+}
+.formAuth{
+  background-color: white !important;
+}

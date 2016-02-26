@@ -1,0 +1,44 @@
+doctype html
+html(lang='en' data-ng-app='cognizantApp')
+  head
+    title cognizantApp
+    meta(name='viewport' content='width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes')
+    |<!-- inject:head:js -->
+    |<!-- endinject -->
+    |<!-- inject:html -->
+    |<!-- endinject -->
+    |<!-- bower:css -->
+    |<!-- endbower -->
+    |<!-- inject:css -->
+    |<!-- endinject -->
+  body
+    .header
+      img(src="./images/letters.jpg" class="img-responsive headerImg")
+    .container.vertical-center
+      .container.jumbotron.formAuth 
+          //Login funtionality
+          form(class="form-horizontal" name="formLogin" ng-controller="LoguserCtrl as auth")
+            label(class="control-label") User
+
+            input(type="text" class="form-control" placeholder="Your user or email" ng-model="auth.user")
+            label(class="control-label") Password
+
+            input(type="password" class="form-control" placeholder="Password" ng-model="auth.psw")
+            //Buttons    
+            button(type="submit" class="btn btn-primary" ng-click="auth.login(auth.user, auth.psw)") Login-In
+            button(type="submit" class="btn btn-primary" ng-click="auth.register()") Register
+            //Registration form    
+            .form(class="form-horizontal" name="formReg" ng-show="auth.registration")
+              label(class="control-label") User
+              input(type="text" class="form-control" placeholder="Your user or email" ng-model="auth.user")
+   
+
+
+
+    
+      
+
+    |<!-- bower:js -->
+    |<!-- endbower -->
+    |<!-- inject:js -->
+    |<!-- endinject -->
