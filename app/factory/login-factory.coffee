@@ -9,27 +9,33 @@
 ###
 angular
   .module 'cognizantApp'
-  .factory 'Login', ->
-    login: (user, psw) ->
-      #alert "login"
-      #alert user
-      #alert psw
-      @loginSuccess = false
-      @user = user
-      @psw = psw
-      @dataUser = users
-      #alert users
-      for aux, i in users
-        if user is aux.user and psw is aux.psw
-          @loginSuccess = true
-      if @loginSuccess is true
-        alert "here I need a message: Welcome + name, it's correct"
-        location.href = '/home/home.tpl.html'
-      else
-        alert "here I need a message: it's failed"
-        
-          
-      return
+  .factory 'Login', [
+    'localStorageService'
+    (localStorageService) ->
+      login: (user, psw) ->
+        #alert "login"
+        #alert user
+        #alert psw
+        @loginSuccess = false
+        @user = user
+        @psw = psw
+        @dataUser = users
+        @userSession = ""
+        @pswSession = ""
+        #alert users
+        for aux, i in users
+          if user is aux.user and psw is aux.psw
+            @loginSuccess = true
+            @userSession = localStorageService.set('user')
+            @pswSession = localStorageService.set('psw')
+            
+        if @loginSuccess is true
+          alert "here I need a message: Welcome + name, it's correct"
+          location.href = '/home/home.tpl.html'
+        else
+          alert "here I need a message: it's failed"
+        return
+  ]
   
 users = [
   {
