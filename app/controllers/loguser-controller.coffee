@@ -17,18 +17,21 @@ angular
   .controller 'LoguserCtrl', [
     'Login'
     'Register'
-    (Login, Register) ->
+    'localStorageService'
+    (Login, Register, localStorageService) ->
       @registration = false
       @login = (user, psw) ->
         Login.login(user, psw)
         return
       @register = ->
         @registration = true
-        Register.register()
+        return
+      @saveUser = (user, psw,name, surname) ->
+        Register.register(user, psw, name, surname)
+        return
+      @cancelRegistration = ->
+        @registration = false
         return
       #function related with datausers
       return
   ]
-
-
-
